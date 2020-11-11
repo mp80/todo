@@ -6,33 +6,39 @@
             <div class="card-header-tab card-header">
                 <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i class="fa fa-tasks"></i>&nbsp;Task Lists</div>
             </div>
-            <div class="scroll-area-sm">
+            <div id='task' class="scroll-area-sm">
                 <perfect-scrollbar class="ps-show-limits">
+                    {% for task in tasks %}
                     <div style="position: static;" class="ps ps--active-y">
                         <div class="ps-content">
                             <ul class=" list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <div class="todo-indicator bg-warning"></div>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-2">
                                                 <div class="custom-checkbox custom-control"> <input class="custom-control-input" id="exampleCustomCheckbox12" type="checkbox"><label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label> </div>
                                             </div>
                                             <div class="widget-content-left">
-                                                <div class="widget-heading">Added test <div class="badge badge-danger ml-2">Test Case</div>
+                                                <div id='task_title' class="widget-heading">{{ task.title }}<div class="badge badge-success ml-2">Test Case</div>
                                                 </div>
-                                                <div class="widget-subheading"><i>By Mike</i></div>
+                                                <div class="widget-subheading"><i>{{ task.author }}</i></div>
                                             </div>
-                                            <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                            <div class="widget-content-right"> <a href="{{ url('task_delete', {'id': task.id }) }}"><button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button></a> </div>
+
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
+                    {% endfor %}
                 </perfect-scrollbar>
             </div>
-            <div class="d-block text-right card-footer"><button class="mr-2 btn btn-link btn-sm">Cancel</button><button class="btn btn-primary">Add Task</button></div>
+            <div class="d-block card-footer">
+                {{ form_start(task_form, {'attr': {'id': 'task_form', 'class': 'form-group'} }) }}
+                    {{ form(task_form) }}
+                {{ form_end(task_form) }}
+            </div>
         </div>
     </div>
 </div>
