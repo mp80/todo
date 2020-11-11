@@ -6,3 +6,5 @@ Run the following:
   
 Now: symfony server:start
 http://127.0.0.1:8000
+
+![Screenshot 2020-11-11 at 15 48 19](https://user-images.githubusercontent.com/4425203/98827353-0fb12180-2437-11eb-8c2d-55b4893da014.png)
