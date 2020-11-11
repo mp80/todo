@@ -1,6 +1,6 @@
 # todo
 
-For testing this only just clone run migrations and check database under 127.0.0.1 3306 root with nu password.
+For testing this only just clone run migrations and check database under 127.0.0.1 3306 root with no password.
 Run the following: 
   php bin/console doctrine:fixtures:load --env=test
   
